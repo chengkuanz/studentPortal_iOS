@@ -7,23 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D7CDF9F32C12A97A00CEB078 /* studentPortal_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDF9F22C12A97A00CEB078 /* studentPortal_iosApp.swift */; };
-		D7CDF9F52C12A97A00CEB078 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDF9F42C12A97A00CEB078 /* ContentView.swift */; };
-		D7CDF9F72C12A97E00CEB078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDF9F62C12A97E00CEB078 /* Assets.xcassets */; };
-		D7CDF9FA2C12A97E00CEB078 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDF9F92C12A97E00CEB078 /* Preview Assets.xcassets */; };
+		D7CDFA0E2C12AA3500CEB078 /* studentPortal_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */; };
+		D7CDFA102C12AA3500CEB078 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */; };
+		D7CDFA122C12AA3700CEB078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDFA112C12AA3700CEB078 /* Assets.xcassets */; };
+		D7CDFA152C12AA3700CEB078 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDFA142C12AA3700CEB078 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D7CDF9EF2C12A97A00CEB078 /* studentPortal_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studentPortal_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7CDF9F22C12A97A00CEB078 /* studentPortal_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentPortal_iosApp.swift; sourceTree = "<group>"; };
-		D7CDF9F42C12A97A00CEB078 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D7CDF9F62C12A97E00CEB078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D7CDF9F92C12A97E00CEB078 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D7CDF9FB2C12A97E00CEB078 /* studentPortal_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = studentPortal_ios.entitlements; sourceTree = "<group>"; };
+		D7CDFA0A2C12AA3500CEB078 /* studentPortal_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studentPortal_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentPortal_iosApp.swift; sourceTree = "<group>"; };
+		D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D7CDFA112C12AA3700CEB078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7CDFA142C12AA3700CEB078 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D7CDF9EC2C12A97A00CEB078 /* Frameworks */ = {
+		D7CDFA072C12AA3500CEB078 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,38 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D7CDF9E62C12A97A00CEB078 = {
+		D7CDFA012C12AA3500CEB078 = {
 			isa = PBXGroup;
 			children = (
-				D7CDF9F12C12A97A00CEB078 /* studentPortal_ios */,
-				D7CDF9F02C12A97A00CEB078 /* Products */,
+				D7CDFA0C2C12AA3500CEB078 /* studentPortal_ios */,
+				D7CDFA0B2C12AA3500CEB078 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D7CDF9F02C12A97A00CEB078 /* Products */ = {
+		D7CDFA0B2C12AA3500CEB078 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7CDF9EF2C12A97A00CEB078 /* studentPortal_ios.app */,
+				D7CDFA0A2C12AA3500CEB078 /* studentPortal_ios.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D7CDF9F12C12A97A00CEB078 /* studentPortal_ios */ = {
+		D7CDFA0C2C12AA3500CEB078 /* studentPortal_ios */ = {
 			isa = PBXGroup;
 			children = (
-				D7CDF9F22C12A97A00CEB078 /* studentPortal_iosApp.swift */,
-				D7CDF9F42C12A97A00CEB078 /* ContentView.swift */,
-				D7CDF9F62C12A97E00CEB078 /* Assets.xcassets */,
-				D7CDF9FB2C12A97E00CEB078 /* studentPortal_ios.entitlements */,
-				D7CDF9F82C12A97E00CEB078 /* Preview Content */,
+				D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */,
+				D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */,
+				D7CDFA112C12AA3700CEB078 /* Assets.xcassets */,
+				D7CDFA132C12AA3700CEB078 /* Preview Content */,
 			);
 			path = studentPortal_ios;
 			sourceTree = "<group>";
 		};
-		D7CDF9F82C12A97E00CEB078 /* Preview Content */ = {
+		D7CDFA132C12AA3700CEB078 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				D7CDF9F92C12A97E00CEB078 /* Preview Assets.xcassets */,
+				D7CDFA142C12AA3700CEB078 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -72,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D7CDF9EE2C12A97A00CEB078 /* studentPortal_ios */ = {
+		D7CDFA092C12AA3500CEB078 /* studentPortal_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7CDF9FE2C12A97E00CEB078 /* Build configuration list for PBXNativeTarget "studentPortal_ios" */;
+			buildConfigurationList = D7CDFA182C12AA3700CEB078 /* Build configuration list for PBXNativeTarget "studentPortal_ios" */;
 			buildPhases = (
-				D7CDF9EB2C12A97A00CEB078 /* Sources */,
-				D7CDF9EC2C12A97A00CEB078 /* Frameworks */,
-				D7CDF9ED2C12A97A00CEB078 /* Resources */,
+				D7CDFA062C12AA3500CEB078 /* Sources */,
+				D7CDFA072C12AA3500CEB078 /* Frameworks */,
+				D7CDFA082C12AA3500CEB078 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -86,25 +84,25 @@
 			);
 			name = studentPortal_ios;
 			productName = studentPortal_ios;
-			productReference = D7CDF9EF2C12A97A00CEB078 /* studentPortal_ios.app */;
+			productReference = D7CDFA0A2C12AA3500CEB078 /* studentPortal_ios.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D7CDF9E72C12A97A00CEB078 /* Project object */ = {
+		D7CDFA022C12AA3500CEB078 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					D7CDF9EE2C12A97A00CEB078 = {
+					D7CDFA092C12AA3500CEB078 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = D7CDF9EA2C12A97A00CEB078 /* Build configuration list for PBXProject "studentPortal_ios" */;
+			buildConfigurationList = D7CDFA052C12AA3500CEB078 /* Build configuration list for PBXProject "studentPortal_ios" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,42 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = D7CDF9E62C12A97A00CEB078;
-			productRefGroup = D7CDF9F02C12A97A00CEB078 /* Products */;
+			mainGroup = D7CDFA012C12AA3500CEB078;
+			productRefGroup = D7CDFA0B2C12AA3500CEB078 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D7CDF9EE2C12A97A00CEB078 /* studentPortal_ios */,
+				D7CDFA092C12AA3500CEB078 /* studentPortal_ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D7CDF9ED2C12A97A00CEB078 /* Resources */ = {
+		D7CDFA082C12AA3500CEB078 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7CDF9FA2C12A97E00CEB078 /* Preview Assets.xcassets in Resources */,
-				D7CDF9F72C12A97E00CEB078 /* Assets.xcassets in Resources */,
+				D7CDFA152C12AA3700CEB078 /* Preview Assets.xcassets in Resources */,
+				D7CDFA122C12AA3700CEB078 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D7CDF9EB2C12A97A00CEB078 /* Sources */ = {
+		D7CDFA062C12AA3500CEB078 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7CDF9F52C12A97A00CEB078 /* ContentView.swift in Sources */,
-				D7CDF9F32C12A97A00CEB078 /* studentPortal_iosApp.swift in Sources */,
+				D7CDFA102C12AA3500CEB078 /* ContentView.swift in Sources */,
+				D7CDFA0E2C12AA3500CEB078 /* studentPortal_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D7CDF9FC2C12A97E00CEB078 /* Debug */ = {
+		D7CDFA162C12AA3700CEB078 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -197,17 +195,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		D7CDF9FD2C12A97E00CEB078 /* Release */ = {
+		D7CDFA172C12AA3700CEB078 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,87 +249,94 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		D7CDF9FF2C12A97E00CEB078 /* Debug */ = {
+		D7CDFA192C12AA3700CEB078 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = studentPortal_ios/studentPortal_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"studentPortal_ios/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.chengkuanz.studentPortal-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D7CDFA002C12A97E00CEB078 /* Release */ = {
+		D7CDFA1A2C12AA3700CEB078 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = studentPortal_ios/studentPortal_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"studentPortal_ios/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.chengkuanz.studentPortal-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D7CDF9EA2C12A97A00CEB078 /* Build configuration list for PBXProject "studentPortal_ios" */ = {
+		D7CDFA052C12AA3500CEB078 /* Build configuration list for PBXProject "studentPortal_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7CDF9FC2C12A97E00CEB078 /* Debug */,
-				D7CDF9FD2C12A97E00CEB078 /* Release */,
+				D7CDFA162C12AA3700CEB078 /* Debug */,
+				D7CDFA172C12AA3700CEB078 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7CDF9FE2C12A97E00CEB078 /* Build configuration list for PBXNativeTarget "studentPortal_ios" */ = {
+		D7CDFA182C12AA3700CEB078 /* Build configuration list for PBXNativeTarget "studentPortal_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7CDF9FF2C12A97E00CEB078 /* Debug */,
-				D7CDFA002C12A97E00CEB078 /* Release */,
+				D7CDFA192C12AA3700CEB078 /* Debug */,
+				D7CDFA1A2C12AA3700CEB078 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D7CDF9E72C12A97A00CEB078 /* Project object */;
+	rootObject = D7CDFA022C12AA3500CEB078 /* Project object */;
 }
