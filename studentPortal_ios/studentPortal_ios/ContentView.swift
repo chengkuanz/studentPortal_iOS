@@ -25,7 +25,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         //WebView(url: URL(string: "https://www.google.com")!)
-        WebView(url: URL(string: "http://localhost:3000/courses/courseList")!)
+        WebView(url: URL(string: "http://localhost:3000")!)
     
             .edgesIgnoringSafeArea(.all)
     }
