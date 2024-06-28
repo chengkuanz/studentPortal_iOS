@@ -1,3 +1,10 @@
+//
+//  HomeView.swift
+//  studentPortal_ios
+//
+//  Created by chengkuan zhao on 2024-06-28.
+//
+
 import SwiftUI
 
 struct HomeView: View {
@@ -9,7 +16,7 @@ struct HomeView: View {
                 .font(.largeTitle)
                 .padding()
             
-            HStack(spacing: 0) {
+            HStack {
                 Button(action: {
                     selectedTab = .myCourses
                 }) {
@@ -20,6 +27,8 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
+                
+                Spacer(minLength: 16) // Add space between buttons
                 
                 Button(action: {
                     selectedTab = .announcements
@@ -84,7 +93,7 @@ struct CourseCard: View {
             Text("Introduction to Italian")
                 .font(.subheadline)
             
-            Text("Tote bag sint hell of air plant leggings gentrify same retro...")
+            Text("TLorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century ...")
                 .font(.caption)
                 .foregroundColor(.gray)
         }
@@ -107,7 +116,7 @@ struct AnnouncementCard: View {
             
             Divider()
             
-            Text("The due date for Assignment 1 has been postponed. Students now have an extended deadline to submit their work. Please check the updated schedule for the new submission deadline.")
+            Text("Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century...")
                 .font(.body)
         }
         .padding()
