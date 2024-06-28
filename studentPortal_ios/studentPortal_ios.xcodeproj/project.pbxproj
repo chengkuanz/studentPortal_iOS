@@ -12,6 +12,8 @@
 		D7CDFA122C12AA3700CEB078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDFA112C12AA3700CEB078 /* Assets.xcassets */; };
 		D7CDFA152C12AA3700CEB078 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDFA142C12AA3700CEB078 /* Preview Assets.xcassets */; };
 		D7CDFA1C2C12AB0A00CEB078 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDFA1B2C12AB0A00CEB078 /* WebView.swift */; };
+		D7DA4BB62C2F75AE00EEB09F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA4BB52C2F75AE00EEB09F /* ProfileView.swift */; };
+		D7DA4BB82C2F75C900EEB09F /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		D7CDFA112C12AA3700CEB078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7CDFA142C12AA3700CEB078 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D7CDFA1B2C12AB0A00CEB078 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		D7DA4BB52C2F75AE00EEB09F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */,
 				D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */,
+				D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */,
+				D7DA4BB52C2F75AE00EEB09F /* ProfileView.swift */,
 				D7CDFA112C12AA3700CEB078 /* Assets.xcassets */,
 				D7CDFA1B2C12AB0A00CEB078 /* WebView.swift */,
 				D7CDFA132C12AA3700CEB078 /* Preview Content */,
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DA4BB62C2F75AE00EEB09F /* ProfileView.swift in Sources */,
+				D7DA4BB82C2F75C900EEB09F /* CoursesView.swift in Sources */,
 				D7CDFA1C2C12AB0A00CEB078 /* WebView.swift in Sources */,
 				D7CDFA102C12AA3500CEB078 /* ContentView.swift in Sources */,
 				D7CDFA0E2C12AA3500CEB078 /* studentPortal_iosApp.swift in Sources */,
