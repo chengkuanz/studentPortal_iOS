@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            WebView(url: URL(string: "http://localhost:3000")!)
+            HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
