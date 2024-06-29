@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D748D05F2C30996B0067809A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D748D05E2C30996B0067809A /* GoogleService-Info.plist */; };
 		D7CDFA0E2C12AA3500CEB078 /* studentPortal_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */; };
 		D7CDFA102C12AA3500CEB078 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */; };
 		D7CDFA122C12AA3700CEB078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CDFA112C12AA3700CEB078 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D748D05E2C30996B0067809A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7CDFA0A2C12AA3500CEB078 /* studentPortal_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studentPortal_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentPortal_iosApp.swift; sourceTree = "<group>"; };
 		D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				D7CDFA1B2C12AB0A00CEB078 /* WebView.swift */,
 				D7DA4BB92C2F797700EEB09F /* HomeView.swift */,
 				D7DA4BBB2C2F79D300EEB09F /* text.rtf */,
+				D748D05E2C30996B0067809A /* GoogleService-Info.plist */,
 				D7CDFA132C12AA3700CEB078 /* Preview Content */,
 			);
 			path = studentPortal_ios;
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7CDFA152C12AA3700CEB078 /* Preview Assets.xcassets in Resources */,
+				D748D05F2C30996B0067809A /* GoogleService-Info.plist in Resources */,
 				D7DA4BBC2C2F79D300EEB09F /* text.rtf in Resources */,
 				D7CDFA122C12AA3700CEB078 /* Assets.xcassets in Resources */,
 			);
