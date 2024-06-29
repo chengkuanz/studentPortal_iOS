@@ -7,13 +7,13 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 struct ProfileView: View {
-    @State private var firstName = "Chris"
-    @State private var lastName = "Morrison"
-    @State private var email = "example@gmail.com"
-    @State private var ottawaUEmail = "test1@test.ca"
-    @State private var studentNumber = "1235678"
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var email = ""
+    @State private var studentNumber = ""
     @State private var isEditing = false
     @State private var errorMessage = ""
     @State private var showingErrorAlert = false
@@ -45,7 +45,6 @@ struct ProfileView: View {
                 ProfileField(title: "First Name", value: $firstName, isEditing: $isEditing)
                 ProfileField(title: "Last Name", value: $lastName, isEditing: $isEditing)
                 ProfileField(title: "Email", value: $email, isEditing: $isEditing)
-                ProfileField(title: "OttawaU Email", value: $ottawaUEmail, isEditing: $isEditing)
 
                 HStack {
                     Text("Student Number:")
@@ -60,7 +59,7 @@ struct ProfileView: View {
             if isEditing {
                 HStack {
                     Button(action: {
-                        // Action to save changes
+                        saveChanges()
                         isEditing = false
                     }) {
                         Text("SAVE")
@@ -73,7 +72,6 @@ struct ProfileView: View {
                     }
 
                     Button(action: {
-                        // Action to cancel editing
                         isEditing = false
                     }) {
                         Text("CANCEL")
@@ -106,6 +104,46 @@ struct ProfileView: View {
         .padding()
         .alert(isPresented: $showingErrorAlert) {
             Alert(title: Text("Logout Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+        }
+        .onAppear {
+            fetchUserData()
+        }
+    }
+
+    func fetchUserData() {
+        guard let user = Auth.auth().currentUser else { return }
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(user.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                self.firstName = data?["firstName"] as? String ?? ""
+                self.lastName = data?["lastName"] as? String ?? ""
+                self.email = data?["email"] as? String ?? ""
+                self.studentNumber = data?["studentNumber"] as? String ?? ""
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+
+    func saveChanges() {
+        guard let user = Auth.auth().currentUser else { return }
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(user.uid)
+        
+        userRef.setData([
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "email": self.email,
+            "studentNumber": self.studentNumber
+        ], merge: true) { error in
+            if let error = error {
+                print("Error saving changes: \(error)")
+            } else {
+                print("Changes saved successfully")
+            }
         }
     }
 
