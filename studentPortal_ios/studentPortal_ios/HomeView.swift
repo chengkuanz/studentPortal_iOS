@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct HomeView: View {
     @State private var selectedTab: Tab = .myCourses
+    @State private var announcements: [Announcement] = []
     
     var body: some View {
         VStack {
@@ -49,7 +52,9 @@ struct HomeView: View {
                     if selectedTab == .myCourses {
                         CourseCard()
                     } else {
-                        AnnouncementCard()
+                        ForEach(announcements) { announcement in
+                            AnnouncementCard(announcement: announcement)
+                        }
                     }
                 }
                 .padding()
@@ -57,6 +62,9 @@ struct HomeView: View {
         }
         .background(Color.white)
         .edgesIgnoringSafeArea(.bottom)
+        .onAppear {
+            fetchAnnouncements()
+        }
     }
     
     func greetingMessage() -> String {
@@ -75,6 +83,48 @@ struct HomeView: View {
         case myCourses
         case announcements
     }
+    
+    func fetchAnnouncements() {
+        guard let user = Auth.auth().currentUser else { return }
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(user.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                let registeredCourses = data?["registeredCourses"] as? [String] ?? []
+                
+                if !registeredCourses.isEmpty {
+                    let announcementsCollection = db.collection("announcements")
+                    announcementsCollection.getDocuments { (querySnapshot, error) in
+                        if let querySnapshot = querySnapshot {
+                            let filteredAnnouncements = querySnapshot.documents.filter { doc in
+                                let activeCourses = doc.data()["activeCourses"] as? [String] ?? []
+                                return includesOne(collection: activeCourses, search: registeredCourses)
+                            }.map { doc in
+                                Announcement(
+                                    id: doc.documentID,
+                                    text: doc.data()["text"] as? String ?? "",
+                                    title: doc.data()["title"] as? String ?? "",
+                                    expiryDate: doc.data()["expiryDate"] as? String ?? "",
+                                    releaseDate: doc.data()["releaseDate"] as? String ?? ""
+                                )
+                            }
+                            self.announcements = filteredAnnouncements
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct Announcement: Identifiable {
+    var id: String
+    var text: String
+    var title: String
+    var expiryDate: String
+    var releaseDate: String
 }
 
 struct CourseCard: View {
@@ -93,7 +143,7 @@ struct CourseCard: View {
             Text("Introduction to Italian")
                 .font(.subheadline)
             
-            Text("TLorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century ...")
+            Text("Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century ...")
                 .font(.caption)
                 .foregroundColor(.gray)
         }
@@ -105,18 +155,20 @@ struct CourseCard: View {
 }
 
 struct AnnouncementCard: View {
+    var announcement: Announcement
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Assignment 1 Postponed")
+            Text(announcement.title)
                 .font(.headline)
             
-            Text("7/31/2023, 11:45")
+            Text(announcement.releaseDate)
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
             Divider()
             
-            Text("Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century...")
+            Text(announcement.text)
                 .font(.body)
         }
         .padding()
@@ -132,3 +184,11 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
+func includesOne(collection: [String], search: [String]) -> Bool {
+    for item in search {
+        if collection.contains(item) {
+            return true
+        }
+    }
+    return false
+}
