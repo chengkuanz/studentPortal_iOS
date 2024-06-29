@@ -30,7 +30,7 @@ struct CoursesView: View {
                     Text("No courses registered")
                 } else {
                     List(courses) { course in
-                        NavigationLink(destination: CourseDetailView(course: course)) {
+                        NavigationLink(destination: CourseDetailView(courseId: course.id)) {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(course.name)
@@ -100,29 +100,6 @@ struct CoursesView: View {
                 self.isLoading = false
             }
         }
-    }
-}
-
-struct CourseDetailView: View {
-    var course: Course
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(course.name)
-                .font(.largeTitle)
-                .padding(.bottom)
-            Text("Course Code: \(course.courseCode)")
-                .font(.title2)
-                .padding(.bottom)
-            Text("Day of Week: \(course.dayOfWeek)")
-                .font(.title2)
-                .padding(.bottom)
-            Text("Time: \(course.time)")
-                .font(.title2)
-                .padding(.bottom)
-        }
-        .padding()
-        .navigationTitle("Course Details")
     }
 }
 
