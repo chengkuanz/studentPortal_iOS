@@ -28,6 +28,7 @@ struct CourseDetailView: View {
     @State private var course: Course?
     @State private var courseContents: [CourseContent] = []
     @State private var isLoading = true
+    @State private var isExpanded = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,51 +36,61 @@ struct CourseDetailView: View {
                 ProgressView("Loading course details...")
             } else if let course = course {
                 VStack(alignment: .leading) {
-                    Text(course.name)
-                        .font(.largeTitle)
-                        .padding(.bottom)
-                    Text("Course Code: \(course.courseCode)")
-                        .font(.title2)
-                        .padding(.bottom)
-                    Text("Day of Week: \(course.dayOfWeek)")
-                        .font(.title2)
-                        .padding(.bottom)
-                    Text("Time: \(course.time)")
-                        .font(.title2)
-                        .padding(.bottom)
-                }
-                .padding()
-                .navigationTitle("Course Details")
-                
-                Divider()
-                
-                Text("Course Contents")
-                    .font(.title)
-                    .padding()
-                
-                ScrollView {
-                    ForEach(courseContents) { content in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(content.title)
-                                .font(.headline)
-                            Text("Type: \(content.type)")
-                            Text(content.textContent)
-                            Text("Open: \(content.open)")
-                            Text("Close: \(content.close)")
-                            Text("Due: \(content.due)")
-                            
-                            if content.type == "video" {
-                                VideoPlayerView(url: content.videoUrl)
-                                Link("Download Video", destination: URL(string: content.videoUrl)!)
-                                    .padding(.top, 10)
-                                    .buttonStyle(DefaultButtonStyle())
-                            }
+                    DisclosureGroup("Course Details", isExpanded: $isExpanded) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(course.name)
+                                .font(.title)
+                                .padding(.bottom, 2)
+                            Text("Course Code: \(course.courseCode)")
+                                .font(.body)
+                                .padding(.bottom, 2)
+                            Text("Day of Week: \(course.dayOfWeek)")
+                                .font(.body)
+                                .padding(.bottom, 2)
+                            Text("Time: \(course.time)")
+                                .font(.body)
+                                .padding(.bottom, 2)
                         }
                         .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                        .padding(.horizontal)
-                        .padding(.bottom, 10)
+                    }
+                    .padding()
+                    .navigationTitle("Course Details")
+                    
+                    Divider()
+                    
+                    Text("Course Contents")
+                        .font(.title2)
+                        .padding()
+                    
+                    ScrollView {
+                        ForEach(courseContents) { content in
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(content.title)
+                                    .font(.headline)
+                                Text("Type: \(content.type)")
+                                    .font(.subheadline)
+                                Text(content.textContent)
+                                    .font(.body)
+                                Text("Open: \(content.open)")
+                                    .font(.subheadline)
+                                Text("Close: \(content.close)")
+                                    .font(.subheadline)
+                                Text("Due: \(content.due)")
+                                    .font(.subheadline)
+                                
+                                if content.type == "video" {
+                                    VideoPlayerView(url: content.videoUrl)
+                                    Link("Download Video", destination: URL(string: content.videoUrl)!)
+                                        .padding(.top, 10)
+                                        .buttonStyle(DefaultButtonStyle())
+                                }
+                            }
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(8)
+                            .padding(.horizontal)
+                            .padding(.bottom, 10)
+                        }
                     }
                 }
             } else {
