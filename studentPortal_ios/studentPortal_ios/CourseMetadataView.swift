@@ -1,3 +1,10 @@
+//
+//  CourseMetadataView.swift
+//  studentPortal_ios
+//
+//  Created by chengkuan zhao on 2024-07-02.
+//
+
 import SwiftUI
 
 struct CourseMetadataView: View {
@@ -65,7 +72,7 @@ struct CourseMetadataView_Previews: PreviewProvider {
             courseCode: "CS101",
             dayOfWeek: "Monday",
             time: "10:00 AM - 12:00 PM",
-            description: "This is a sample course description.",
+            description: "This is a sample course description for preview only.",
             section: "A",
             semester: "Fall",
             year: "2025",
