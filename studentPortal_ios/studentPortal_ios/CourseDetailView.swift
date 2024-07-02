@@ -26,10 +26,9 @@ struct CourseContent: Identifiable {
 struct CourseDetailView: View {
     var courseId: String
     
-    @State private var course: Course?
+    @State private var course: Course2?
     @State private var courseContents: [CourseContent] = []
     @State private var isLoading = true
-    @State private var isExpanded = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,25 +36,11 @@ struct CourseDetailView: View {
                 ProgressView("Loading course details...")
             } else if let course = course {
                 VStack(alignment: .leading) {
-                    DisclosureGroup("Course Details", isExpanded: $isExpanded) {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(course.name)
-                                .font(.title)
-                                .padding(.bottom, 2)
-                            Text("Course Code: \(course.courseCode)")
-                                .font(.body)
-                                .padding(.bottom, 2)
-                            Text("Day of Week: \(course.dayOfWeek)")
-                                .font(.body)
-                                .padding(.bottom, 2)
-                            Text("Time: \(course.time)")
-                                .font(.body)
-                                .padding(.bottom, 2)
-                        }
-                        .padding()
+                    NavigationLink(destination: CourseMetadataView(course: course)) {
+                        Text(course.name)
+                            .font(.title)
+                            .padding()
                     }
-                    .padding()
-                    .navigationTitle("Course Details")
                     
                     Divider()
                     
@@ -116,12 +101,17 @@ struct CourseDetailView: View {
         courseDoc.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data() ?? [:]
-                self.course = Course(
+                self.course = Course2(
                     id: document.documentID,
                     name: data["name"] as? String ?? "",
                     courseCode: data["courseCode"] as? String ?? "",
                     dayOfWeek: data["dayOfWeek"] as? String ?? "",
-                    time: data["time"] as? String ?? ""
+                    time: data["time"] as? String ?? "",
+                    description: data["description"] as? String ?? "",
+                    section: data["section"] as? String ?? "",
+                    semester: data["semester"] as? String ?? "",
+                    year: data["year"] as? String ?? "",
+                    location: data["location"] as? String ?? ""
                 )
             }
             self.fetchCourseContents()
@@ -192,4 +182,3 @@ struct CourseDetailView_Previews: PreviewProvider {
         CourseDetailView(courseId: "exampleCourseId")
     }
 }
-
