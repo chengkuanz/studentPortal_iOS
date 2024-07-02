@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D736950B2C3478FE00F75361 /* CourseMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736950A2C3478FE00F75361 /* CourseMetadataView.swift */; };
 		D748D05F2C30996B0067809A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D748D05E2C30996B0067809A /* GoogleService-Info.plist */; };
 		D748D0622C309B060067809A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D748D0612C309B060067809A /* FirebaseAnalytics */; };
 		D748D0642C309B060067809A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = D748D0632C309B060067809A /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D736950A2C3478FE00F75361 /* CourseMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseMetadataView.swift; sourceTree = "<group>"; };
 		D748D05E2C30996B0067809A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D748D0972C30A3AB0067809A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D748D0992C30B5AE0067809A /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				D748D0972C30A3AB0067809A /* LoginView.swift */,
 				D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */,
 				D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */,
+				D736950A2C3478FE00F75361 /* CourseMetadataView.swift */,
 				D748D0992C30B5AE0067809A /* CourseDetailView.swift */,
 				D7DA4BB52C2F75AE00EEB09F /* ProfileView.swift */,
 				D7CDFA112C12AA3700CEB078 /* Assets.xcassets */,
@@ -253,6 +256,7 @@
 				D7DA4BB62C2F75AE00EEB09F /* ProfileView.swift in Sources */,
 				D748D0982C30A3AB0067809A /* LoginView.swift in Sources */,
 				D7DA4BB82C2F75C900EEB09F /* CoursesView.swift in Sources */,
+				D736950B2C3478FE00F75361 /* CourseMetadataView.swift in Sources */,
 				D7CDFA1C2C12AB0A00CEB078 /* WebView.swift in Sources */,
 				D7DA4BBA2C2F797700EEB09F /* HomeView.swift in Sources */,
 				D7CDFA102C12AA3500CEB078 /* ContentView.swift in Sources */,

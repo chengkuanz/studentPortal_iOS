@@ -6,7 +6,6 @@
 //  Created by chengkuan zhao on 2024-06-28.
 //
 
-
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
@@ -18,72 +17,76 @@ struct HomeView: View {
     @State private var isLoading = true
 
     var body: some View {
-        VStack {
-            Text(greetingMessage())
-                .font(.largeTitle)
-                .padding()
+        NavigationView {
+            VStack {
+                Text(greetingMessage())
+                    .font(.largeTitle)
+                    .padding()
 
-            HStack {
-                Button(action: {
-                    selectedTab = .myCourses
-                }) {
-                    Text("My Courses")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(selectedTab == .myCourses ? Color.pink : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+                HStack {
+                    Button(action: {
+                        selectedTab = .myCourses
+                    }) {
+                        Text("My Courses")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(selectedTab == .myCourses ? Color.pink : Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+
+                    Spacer(minLength: 16) // Add space between buttons
+
+                    Button(action: {
+                        selectedTab = .announcements
+                    }) {
+                        Text("Announcements")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(selectedTab == .announcements ? Color.pink : Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
                 }
+                .padding(.horizontal)
+                .padding(.bottom)
 
-                Spacer(minLength: 16) // Add space between buttons
-
-                Button(action: {
-                    selectedTab = .announcements
-                }) {
-                    Text("Announcements")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(selectedTab == .announcements ? Color.pink : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-            }
-            .padding(.horizontal)
-            .padding(.bottom)
-
-            ScrollView {
-                VStack(spacing: 16) {
-                    if isLoading {
-                        ProgressView("Loading...")
-                    } else {
-                        if selectedTab == .myCourses {
-                            if courses.isEmpty {
-                                Text("No courses registered")
-                                    .padding()
-                            } else {
-                                ForEach(courses) { course in
-                                    CourseCard(course: course)
-                                }
-                            }
+                ScrollView {
+                    VStack(spacing: 16) {
+                        if isLoading {
+                            ProgressView("Loading...")
                         } else {
-                            if announcements.isEmpty {
-                                Text("No announcements")
-                                    .padding()
+                            if selectedTab == .myCourses {
+                                if courses.isEmpty {
+                                    Text("No courses registered")
+                                        .padding()
+                                } else {
+                                    ForEach(courses) { course in
+                                        NavigationLink(destination: CourseMetadataView(course: course)) {
+                                            CourseCard(course: course)
+                                        }
+                                    }
+                                }
                             } else {
-                                ForEach(announcements) { announcement in
-                                    AnnouncementCard(announcement: announcement)
+                                if announcements.isEmpty {
+                                    Text("No announcements")
+                                        .padding()
+                                } else {
+                                    ForEach(announcements) { announcement in
+                                        AnnouncementCard(announcement: announcement)
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding()
                 }
-                .padding()
             }
-        }
-        .background(Color.white)
-        .edgesIgnoringSafeArea(.bottom)
-        .onAppear {
-            fetchAnnouncementsAndCourses()
+            .background(Color.white)
+            .edgesIgnoringSafeArea(.bottom)
+            .onAppear {
+                fetchAnnouncementsAndCourses()
+            }
         }
     }
 
@@ -140,7 +143,11 @@ struct HomeView: View {
                         courseCode: data["courseCode"] as? String ?? "",
                         dayOfWeek: data["dayOfWeek"] as? String ?? "",
                         time: data["time"] as? String ?? "",
-                        description: data["description"] as? String ?? ""
+                        description: data["description"] as? String ?? "",
+                        section: data["section"] as? String ?? "",
+                        semester: data["semester"] as? String ?? "",
+                        year: data["year"] as? String ?? "",
+                        location: data["location"] as? String ?? ""
                     )
                     fetchedCourses.append(course)
                 }
@@ -193,6 +200,10 @@ struct Course2: Identifiable {
     var dayOfWeek: String
     var time: String
     var description: String
+    var section: String
+    var semester: String
+    var year: String
+    var location: String
 }
 
 struct CourseCard: View {
