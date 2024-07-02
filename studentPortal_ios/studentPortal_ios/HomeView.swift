@@ -1,3 +1,12 @@
+
+//
+//  HomeView.swift
+//  studentPortal_ios
+//
+//  Created by chengkuan zhao on 2024-06-28.
+//
+
+
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
@@ -190,34 +199,41 @@ struct CourseCard: View {
     var course: Course2
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Image(systemName: "book.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 100)
-                .background(Color.blue)
-                .cornerRadius(8)
-            
-            Text(course.courseCode)
-                .font(.headline)
-            
-            Text(course.name)
-                .font(.subheadline)
-            
-            Text("\(course.dayOfWeek) - \(course.time)")
-                .font(.caption)
-                .foregroundColor(.gray)
-            
-            Text(course.description)
-                .font(.caption)
-                .foregroundColor(.gray)
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Image(systemName: "book.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 50)  // Smaller icon height
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                
+                Text(course.courseCode)
+                    .font(.headline)
+                
+                Text(course.name)
+                    .font(.subheadline)
+                
+                Text("\(course.dayOfWeek) - \(course.time)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text(course.description)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                
+            }
+            .padding()
+            .background(Color.pink.opacity(0.2))
+            .cornerRadius(12)
+            .frame(width: geometry.size.width)  // Ensure the card takes the full width
         }
-        .padding()
-        .background(Color.pink.opacity(0.2))
-        .cornerRadius(12)
+        .frame(height: 200)  // Set a fixed height for consistency
         .padding(.horizontal)
     }
 }
+
 
 struct AnnouncementCard: View {
     var announcement: Announcement
@@ -257,4 +273,3 @@ func includesOne(collection: [String], search: [String]) -> Bool {
     }
     return false
 }
-
