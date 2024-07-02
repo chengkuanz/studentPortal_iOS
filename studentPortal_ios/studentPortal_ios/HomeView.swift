@@ -216,7 +216,7 @@ struct CourseCard: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 50)  // Smaller icon height
-                    .background(Color.blue)
+                    .background(Color.white)
                     .cornerRadius(8)
                 
                 Text(course.courseCode)
