@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 import AVKit
+import WebKit
 
 struct CourseContent: Identifiable {
     var id: String
@@ -69,8 +70,15 @@ struct CourseDetailView: View {
                                     .font(.headline)
                                 Text("Type: \(content.type)")
                                     .font(.subheadline)
-                                Text(content.textContent)
-                                    .font(.body)
+                                
+                                if content.type == "text" {
+                                    HTMLTextView(htmlContent: content.textContent)
+                                        .frame(height: 200)
+                                } else {
+                                    Text(content.textContent)
+                                        .font(.body)
+                                }
+                                
                                 Text("Open: \(content.open)")
                                     .font(.subheadline)
                                 Text("Close: \(content.close)")
@@ -158,8 +166,26 @@ struct VideoPlayerView: View {
     }
 }
 
+struct HTMLTextView: UIViewRepresentable {
+    var htmlContent: String
+    
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        webView.isOpaque = false
+        webView.backgroundColor = .clear
+        print("Loading HTML content: \(htmlContent)")
+        webView.loadHTMLString(htmlContent, baseURL: nil)
+        return webView
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(htmlContent, baseURL: nil)
+    }
+}
+
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CourseDetailView(courseId: "exampleCourseId")
     }
 }
+
