@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  studentPortal_ios
-//
-//  Created by chengkuan zhao on 2024-06-28.
-//
-
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
@@ -12,13 +5,15 @@ import FirebaseFirestore
 struct HomeView: View {
     @State private var selectedTab: Tab = .myCourses
     @State private var announcements: [Announcement] = []
-    
+    @State private var courses: [Course2] = []
+    @State private var isLoading = true
+
     var body: some View {
         VStack {
             Text(greetingMessage())
                 .font(.largeTitle)
                 .padding()
-            
+
             HStack {
                 Button(action: {
                     selectedTab = .myCourses
@@ -30,9 +25,9 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
-                
+
                 Spacer(minLength: 16) // Add space between buttons
-                
+
                 Button(action: {
                     selectedTab = .announcements
                 }) {
@@ -46,14 +41,30 @@ struct HomeView: View {
             }
             .padding(.horizontal)
             .padding(.bottom)
-            
+
             ScrollView {
                 VStack(spacing: 16) {
-                    if selectedTab == .myCourses {
-                        CourseCard()
+                    if isLoading {
+                        ProgressView("Loading...")
                     } else {
-                        ForEach(announcements) { announcement in
-                            AnnouncementCard(announcement: announcement)
+                        if selectedTab == .myCourses {
+                            if courses.isEmpty {
+                                Text("No courses registered")
+                                    .padding()
+                            } else {
+                                ForEach(courses) { course in
+                                    CourseCard(course: course)
+                                }
+                            }
+                        } else {
+                            if announcements.isEmpty {
+                                Text("No announcements")
+                                    .padding()
+                            } else {
+                                ForEach(announcements) { announcement in
+                                    AnnouncementCard(announcement: announcement)
+                                }
+                            }
                         }
                     }
                 }
@@ -63,10 +74,10 @@ struct HomeView: View {
         .background(Color.white)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
-            fetchAnnouncements()
+            fetchAnnouncementsAndCourses()
         }
     }
-    
+
     func greetingMessage() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
@@ -78,42 +89,81 @@ struct HomeView: View {
             return "Good Evening"
         }
     }
-    
+
     enum Tab {
         case myCourses
         case announcements
     }
-    
-    func fetchAnnouncements() {
+
+    func fetchAnnouncementsAndCourses() {
         guard let user = Auth.auth().currentUser else { return }
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document(user.uid)
-        
-        docRef.getDocument { (document, error) in
+        let userDoc = db.collection("users").document(user.uid)
+
+        userDoc.getDocument { (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
                 let registeredCourses = data?["registeredCourses"] as? [String] ?? []
-                
-                if !registeredCourses.isEmpty {
-                    let announcementsCollection = db.collection("announcements")
-                    announcementsCollection.getDocuments { (querySnapshot, error) in
-                        if let querySnapshot = querySnapshot {
-                            let filteredAnnouncements = querySnapshot.documents.filter { doc in
-                                let activeCourses = doc.data()["activeCourses"] as? [String] ?? []
-                                return includesOne(collection: activeCourses, search: registeredCourses)
-                            }.map { doc in
-                                Announcement(
-                                    id: doc.documentID,
-                                    text: doc.data()["text"] as? String ?? "",
-                                    title: doc.data()["title"] as? String ?? "",
-                                    expiryDate: doc.data()["expiryDate"] as? String ?? "",
-                                    releaseDate: doc.data()["releaseDate"] as? String ?? ""
-                                )
-                            }
-                            self.announcements = filteredAnnouncements
-                        }
-                    }
+
+                fetchCourses(courseIds: registeredCourses)
+                fetchAnnouncements(courseIds: registeredCourses)
+            } else {
+                isLoading = false
+            }
+        }
+    }
+
+    func fetchCourses(courseIds: [String]) {
+        let db = Firestore.firestore()
+        let coursesCollection = db.collection("courses")
+        let dispatchGroup = DispatchGroup()
+
+        var fetchedCourses: [Course2] = []
+
+        for courseId in courseIds {
+            dispatchGroup.enter()
+            coursesCollection.document(courseId).getDocument { (courseSnapshot, error) in
+                if let courseSnapshot = courseSnapshot, courseSnapshot.exists {
+                    let data = courseSnapshot.data() ?? [:]
+                    let course = Course2(
+                        id: courseSnapshot.documentID,
+                        name: data["name"] as? String ?? "",
+                        courseCode: data["courseCode"] as? String ?? "",
+                        dayOfWeek: data["dayOfWeek"] as? String ?? "",
+                        time: data["time"] as? String ?? "",
+                        description: data["description"] as? String ?? ""
+                    )
+                    fetchedCourses.append(course)
                 }
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            self.courses = fetchedCourses
+            self.isLoading = false
+        }
+    }
+
+    func fetchAnnouncements(courseIds: [String]) {
+        let db = Firestore.firestore()
+        let announcementsCollection = db.collection("announcements")
+
+        announcementsCollection.getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+                let filteredAnnouncements = querySnapshot.documents.filter { doc in
+                    let activeCourses = doc.data()["activeCourses"] as? [String] ?? []
+                    return includesOne(collection: activeCourses, search: courseIds)
+                }.map { doc in
+                    Announcement(
+                        id: doc.documentID,
+                        text: doc.data()["text"] as? String ?? "",
+                        title: doc.data()["title"] as? String ?? "",
+                        expiryDate: doc.data()["expiryDate"] as? String ?? "",
+                        releaseDate: doc.data()["releaseDate"] as? String ?? ""
+                    )
+                }
+                self.announcements = filteredAnnouncements
             }
         }
     }
@@ -127,23 +177,38 @@ struct Announcement: Identifiable {
     var releaseDate: String
 }
 
+struct Course2: Identifiable {
+    var id: String
+    var name: String
+    var courseCode: String
+    var dayOfWeek: String
+    var time: String
+    var description: String
+}
+
 struct CourseCard: View {
+    var course: Course2
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Image(systemName: "flag.fill")
+            Image(systemName: "book.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 100)
-                .background(Color.red)
+                .background(Color.blue)
                 .cornerRadius(8)
             
-            Text("ITAL1000")
+            Text(course.courseCode)
                 .font(.headline)
             
-            Text("Introduction to Italian")
+            Text(course.name)
                 .font(.subheadline)
             
-            Text("Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century ...")
+            Text("\(course.dayOfWeek) - \(course.time)")
+                .font(.caption)
+                .foregroundColor(.gray)
+            
+            Text(course.description)
                 .font(.caption)
                 .foregroundColor(.gray)
         }
@@ -192,3 +257,4 @@ func includesOne(collection: [String], search: [String]) -> Bool {
     }
     return false
 }
+
