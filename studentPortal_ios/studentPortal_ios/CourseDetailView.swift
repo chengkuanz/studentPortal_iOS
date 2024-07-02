@@ -137,6 +137,10 @@ struct CourseDetailView: View {
             if let querySnapshot = querySnapshot {
                 self.courseContents = querySnapshot.documents.compactMap { document -> CourseContent? in
                     let data = document.data()
+                    let contentType = data["type"] as? String ?? ""
+                    if contentType == "quiz" {
+                        return nil
+                    }
                     return CourseContent(
                         id: document.documentID,
                         title: data["title"] as? String ?? "",
@@ -144,7 +148,7 @@ struct CourseDetailView: View {
                         open: data["open"] as? String ?? "",
                         close: data["close"] as? String ?? "",
                         due: data["due"] as? String ?? "",
-                        type: data["type"] as? String ?? "",
+                        type: contentType,
                         contentOrder: data["contentOrder"] as? Int ?? 0,
                         courseDocId: data["courseDocId"] as? String ?? "",
                         videoUrl: data["videoUrl"] as? String ?? ""
