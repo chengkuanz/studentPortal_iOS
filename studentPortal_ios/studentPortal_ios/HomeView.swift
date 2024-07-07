@@ -1,4 +1,3 @@
-
 //
 //  HomeView.swift
 //  studentPortal_ios
@@ -80,6 +79,9 @@ struct HomeView: View {
                         }
                     }
                     .padding()
+                }
+                .safeAreaInset(edge: .bottom) {
+                    Color.clear.frame(height: 60) // Adjust the height to match the tab bar height
                 }
             }
             .background(Color.white)
