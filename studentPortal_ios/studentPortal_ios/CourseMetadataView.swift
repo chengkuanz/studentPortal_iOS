@@ -17,42 +17,42 @@ struct CourseMetadataView: View {
                 .padding(.top)
             
             HStack {
-                Text("Course Code:")
+                Text(LocalizedStringKey("course_code"))
                     .font(.headline)
                 Text(course.courseCode)
             }
             
             HStack {
-                Text("Section:")
+                Text(LocalizedStringKey("section"))
                     .font(.headline)
                 Text(course.section)
             }
             
             HStack {
-                Text("Semester:")
+                Text(LocalizedStringKey("semester"))
                     .font(.headline)
                 Text(course.semester)
             }
             
             HStack {
-                Text("Year:")
+                Text(LocalizedStringKey("year"))
                     .font(.headline)
                 Text(course.year)
             }
             
             HStack {
-                Text("Location:")
+                Text(LocalizedStringKey("location"))
                     .font(.headline)
                 Text(course.location)
             }
             
             HStack {
-                Text("Day and Time:")
+                Text(LocalizedStringKey("day_and_time"))
                     .font(.headline)
                 Text("\(course.dayOfWeek) - \(course.time)")
             }
             
-            Text("Description:")
+            Text(LocalizedStringKey("description"))
                 .font(.headline)
             Text(course.description)
                 .padding(.bottom)
@@ -60,7 +60,7 @@ struct CourseMetadataView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Course Details")
+        .navigationTitle(LocalizedStringKey("course_details"))
     }
 }
 
@@ -81,4 +81,3 @@ struct CourseMetadataView_Previews: PreviewProvider {
         CourseMetadataView(course: sampleCourse)
     }
 }
-

@@ -32,3 +32,11 @@
 "due" = "Due";
 "download_video" = "Download Video";
 "no_course_found" = "No course found";
+"course_code" = "Course Code:";
+"section" = "Section:";
+"semester" = "Semester:";
+"year" = "Year:";
+"location" = "Location:";
+"day_and_time" = "Day and Time:";
+"description" = "Description:";
+"course_details" = "Course Details";
