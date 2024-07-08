@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(greetingMessage())
+                Text(LocalizedStringKey(greetingMessage()))
                     .font(.largeTitle)
                     .padding()
 
@@ -26,7 +26,7 @@ struct HomeView: View {
                     Button(action: {
                         selectedTab = .myCourses
                     }) {
-                        Text("My Courses")
+                        Text(LocalizedStringKey("my_courses"))
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(selectedTab == .myCourses ? Color.pink : Color.gray)
@@ -39,7 +39,7 @@ struct HomeView: View {
                     Button(action: {
                         selectedTab = .announcements
                     }) {
-                        Text("Announcements")
+                        Text(LocalizedStringKey("announcements"))
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(selectedTab == .announcements ? Color.pink : Color.gray)
@@ -53,11 +53,11 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         if isLoading {
-                            ProgressView("Loading...")
+                            ProgressView(LocalizedStringKey("loading"))
                         } else {
                             if selectedTab == .myCourses {
                                 if courses.isEmpty {
-                                    Text("No courses registered")
+                                    Text(LocalizedStringKey("no_courses_registered"))
                                         .padding()
                                 } else {
                                     ForEach(courses) { course in
@@ -68,7 +68,7 @@ struct HomeView: View {
                                 }
                             } else {
                                 if announcements.isEmpty {
-                                    Text("No announcements")
+                                    Text(LocalizedStringKey("no_announcements"))
                                         .padding()
                                 } else {
                                     ForEach(announcements) { announcement in
@@ -96,11 +96,11 @@ struct HomeView: View {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
         case 6..<12:
-            return "Good Morning"
+            return "good_morning"
         case 12..<17:
-            return "Good Afternoon"
+            return "good_afternoon"
         default:
-            return "Good Evening"
+            return "good_evening"
         }
     }
 

@@ -43,3 +43,11 @@
 "loading_courses" = "Chargement des cours...";
 "no_courses_registered" = "Aucun cours enregistré";
 "registered_courses" = "Cours enregistrés";
+"my_courses" = "Mes cours";
+"announcements" = "Annonces";
+"loading" = "Chargement...";
+"no_courses_registered" = "Aucun cours enregistré";
+"no_announcements" = "Aucune annonce";
+"good_morning" = "Bonjour";
+"good_afternoon" = "Bon après-midi";
+"good_evening" = "Bonsoir";

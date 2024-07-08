@@ -43,3 +43,11 @@
 "loading_courses" = "Loading courses...";
 "no_courses_registered" = "No courses registered";
 "registered_courses" = "Registered Courses";
+"my_courses" = "My Courses";
+"announcements" = "Announcements";
+"loading" = "Loading...";
+"no_courses_registered" = "No courses registered";
+"no_announcements" = "No announcements";
+"good_morning" = "Good Morning";
+"good_afternoon" = "Good Afternoon";
+"good_evening" = "Good Evening";
