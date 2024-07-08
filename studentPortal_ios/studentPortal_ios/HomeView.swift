@@ -20,6 +20,8 @@ struct HomeView: View {
             VStack {
                 Text(LocalizedStringKey(greetingMessage()))
                     .font(.largeTitle)
+                    //.padding(.top, 20)
+                    //.padding(.bottom, 10)
                     .padding()
 
                 HStack {
@@ -48,7 +50,7 @@ struct HomeView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.bottom)
+                //.padding(.bottom)
 
                 ScrollView {
                     VStack(spacing: 16) {
@@ -275,6 +277,7 @@ struct AnnouncementCard: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
 
