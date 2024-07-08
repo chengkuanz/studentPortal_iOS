@@ -242,7 +242,7 @@ struct CourseCard: View {
             .cornerRadius(12)
             .frame(width: geometry.size.width)  // Ensure the card takes the full width
         }
-        .frame(height: 200)  // Set a fixed height for consistency
+        .frame(height: 180)  // Set a fixed height for consistency
         .padding(.horizontal)
     }
 }
