@@ -24,3 +24,11 @@
 "Enter last name" = "Enter last name";
 "Enter email" = "Enter email";
 "EDIT" = "EDIT";
+"loading_course_details" = "Loading course details...";
+"course_contents" = "Course Contents";
+"type" = "Type";
+"open" = "Open";
+"close" = "Close";
+"due" = "Due";
+"download_video" = "Download Video";
+"no_course_found" = "No course found";

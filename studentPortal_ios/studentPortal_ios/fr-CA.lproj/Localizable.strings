@@ -24,3 +24,11 @@
 "Enter last name" = "Entrez le nom de famille";
 "Enter email" = "Entrez le courriel";
 "EDIT" = "MODIFIER";
+"loading_course_details" = "Chargement des détails du cours...";
+"course_contents" = "Contenu du cours";
+"type" = "Type";
+"open" = "Ouverture";
+"close" = "Fermeture";
+"due" = "Date limite";
+"download_video" = "Télécharger la vidéo";
+"no_course_found" = "Aucun cours trouvé";

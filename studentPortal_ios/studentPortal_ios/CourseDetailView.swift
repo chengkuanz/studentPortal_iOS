@@ -33,7 +33,7 @@ struct CourseDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if isLoading {
-                ProgressView("Loading course details...")
+                ProgressView(LocalizedStringKey("loading_course_details"))
             } else if let course = course {
                 VStack(alignment: .leading) {
                     NavigationLink(destination: CourseMetadataView(course: course)) {
@@ -44,7 +44,7 @@ struct CourseDetailView: View {
                     
                     Divider()
                     
-                    Text("Course Contents")
+                    Text(LocalizedStringKey("course_contents"))
                         .font(.title2)
                         .padding()
                     
@@ -53,7 +53,7 @@ struct CourseDetailView: View {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text(content.title)
                                     .font(.headline)
-                                Text("Type: \(content.type)")
+                                Text(LocalizedStringKey("type")) + Text(": \(content.type)")
                                     .font(.subheadline)
                                 
                                 if content.type == "text" {
@@ -64,16 +64,16 @@ struct CourseDetailView: View {
                                         .font(.body)
                                 }
                                 
-                                Text("Open: \(content.open)")
+                                Text(LocalizedStringKey("open")) + Text(": \(content.open)")
                                     .font(.subheadline)
-                                Text("Close: \(content.close)")
+                                Text(LocalizedStringKey("close")) + Text(": \(content.close)")
                                     .font(.subheadline)
-                                Text("Due: \(content.due)")
+                                Text(LocalizedStringKey("due")) + Text(": \(content.due)")
                                     .font(.subheadline)
                                 
                                 if content.type == "video" {
                                     VideoPlayerView(url: content.videoUrl)
-                                    Link("Download Video", destination: URL(string: content.videoUrl)!)
+                                    Link(LocalizedStringKey("download_video"), destination: URL(string: content.videoUrl)!)
                                         .padding(.top, 10)
                                         .buttonStyle(DefaultButtonStyle())
                                 }
@@ -87,7 +87,7 @@ struct CourseDetailView: View {
                     }
                 }
             } else {
-                Text("No course found")
+                Text(LocalizedStringKey("no_course_found"))
                     .padding()
             }
         }
