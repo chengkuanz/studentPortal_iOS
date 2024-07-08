@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D726298A2C3B6455004D2E15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D726298C2C3B6455004D2E15 /* Localizable.strings */; };
 		D736950B2C3478FE00F75361 /* CourseMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736950A2C3478FE00F75361 /* CourseMetadataView.swift */; };
 		D748D05F2C30996B0067809A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D748D05E2C30996B0067809A /* GoogleService-Info.plist */; };
 		D748D0622C309B060067809A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D748D0612C309B060067809A /* FirebaseAnalytics */; };
@@ -50,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D726298B2C3B6455004D2E15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D726298D2C3B6468004D2E15 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D736950A2C3478FE00F75361 /* CourseMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseMetadataView.swift; sourceTree = "<group>"; };
 		D748D05E2C30996B0067809A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D748D0972C30A3AB0067809A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 				D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */,
 				D748D0972C30A3AB0067809A /* LoginView.swift */,
 				D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */,
+				D726298C2C3B6455004D2E15 /* Localizable.strings */,
 				D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */,
 				D736950A2C3478FE00F75361 /* CourseMetadataView.swift */,
 				D748D0992C30B5AE0067809A /* CourseDetailView.swift */,
@@ -219,6 +223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"fr-CA",
 			);
 			mainGroup = D7CDFA012C12AA3500CEB078;
 			packageReferences = (
@@ -238,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D726298A2C3B6455004D2E15 /* Localizable.strings in Resources */,
 				D7CDFA152C12AA3700CEB078 /* Preview Assets.xcassets in Resources */,
 				D748D05F2C30996B0067809A /* GoogleService-Info.plist in Resources */,
 				D7DA4BBC2C2F79D300EEB09F /* text.rtf in Resources */,
@@ -265,6 +271,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D726298C2C3B6455004D2E15 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D726298B2C3B6455004D2E15 /* en */,
+				D726298D2C3B6468004D2E15 /* fr-CA */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D7CDFA162C12AA3700CEB078 /* Debug */ = {

@@ -11,15 +11,15 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label(LocalizedStringKey("Home"), systemImage: "house")
                 }
             CoursesView()
                 .tabItem {
-                    Label("Courses", systemImage: "graduationcap")
+                    Label(LocalizedStringKey("Courses"), systemImage: "graduationcap")
                 }
             ProfileView()
                 .tabItem {
-                    Label("Profile", systemImage: "person")
+                    Label(LocalizedStringKey("Profile"), systemImage: "person")
                 }
         }
     }
