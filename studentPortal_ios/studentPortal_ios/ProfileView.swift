@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+import UIKit
 
 struct ProfileView: View {
     @State private var firstName = ""
@@ -185,8 +186,11 @@ struct ProfileView: View {
         UserDefaults.standard.set([selectedLanguage], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         
-        // Restart the app or refresh the view to apply the language change
-        // Here we can call a function to refresh the view or notify the user
+        // Quit the app to apply the language change
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            exit(0)
+        }
+        
         print("Language changed to \(selectedLanguage)")
     }
 }
@@ -227,3 +231,4 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
+
