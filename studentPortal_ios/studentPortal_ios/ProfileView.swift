@@ -17,17 +17,18 @@ struct ProfileView: View {
     @State private var isEditing = false
     @State private var errorMessage = ""
     @State private var showingErrorAlert = false
+    @State private var selectedLanguage = "en"
 
     var body: some View {
         VStack {
-            Text("Welcome \(firstName) \(lastName)")
+            Text(LocalizedStringKey("Welcome"))
                 .font(.largeTitle)
                 .padding(.top, 20)
 
             Button(action: {
                 // Action to edit image
             }) {
-                Text("EDIT IMAGE")
+                Text(LocalizedStringKey("EDIT IMAGE"))
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
@@ -42,12 +43,12 @@ struct ProfileView: View {
                 .padding(.top, 10)
 
             VStack(alignment: .leading, spacing: 10) {
-                ProfileField(title: "First Name", value: $firstName, isEditing: $isEditing)
-                ProfileField(title: "Last Name", value: $lastName, isEditing: $isEditing)
-                ProfileField(title: "Email", value: $email, isEditing: $isEditing)
+                ProfileField(title: LocalizedStringKey("First Name"), value: $firstName, isEditing: $isEditing)
+                ProfileField(title: LocalizedStringKey("Last Name"), value: $lastName, isEditing: $isEditing)
+                ProfileField(title: LocalizedStringKey("Email"), value: $email, isEditing: $isEditing)
 
                 HStack {
-                    Text("Student Number:")
+                    Text(LocalizedStringKey("Student Number:"))
                         .font(.headline)
                     Spacer()
                     Text(studentNumber)
@@ -62,7 +63,7 @@ struct ProfileView: View {
                         saveChanges()
                         isEditing = false
                     }) {
-                        Text("SAVE")
+                        Text(LocalizedStringKey("SAVE"))
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -74,7 +75,7 @@ struct ProfileView: View {
                     Button(action: {
                         isEditing = false
                     }) {
-                        Text("CANCEL")
+                        Text(LocalizedStringKey("CANCEL"))
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -88,10 +89,30 @@ struct ProfileView: View {
 
             Spacer()
 
+            Picker(LocalizedStringKey("Language"), selection: $selectedLanguage) {
+                Text("English").tag("en")
+                Text("French").tag("fr")
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+
+            Button(action: {
+                changeLanguage()
+            }) {
+                Text(LocalizedStringKey("Change Language"))
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 220, height: 60)
+                    .background(Color.green)
+                    .cornerRadius(15.0)
+            }
+            .padding(.bottom, 20)
+
             Button(action: {
                 logout()
             }) {
-                Text("Logout")
+                Text(LocalizedStringKey("Logout"))
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
@@ -103,7 +124,7 @@ struct ProfileView: View {
         }
         .padding()
         .alert(isPresented: $showingErrorAlert) {
-            Alert(title: Text("Logout Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            Alert(title: Text(LocalizedStringKey("Logout Error")), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
         .onAppear {
             fetchUserData()
@@ -158,19 +179,29 @@ struct ProfileView: View {
             print("Error signing out: %@", signOutError)
         }
     }
+
+    func changeLanguage() {
+        // Set the app language based on the selectedLanguage state variable
+        UserDefaults.standard.set([selectedLanguage], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
+        
+        // Restart the app or refresh the view to apply the language change
+        // Here we can call a function to refresh the view or notify the user
+        print("Language changed to \(selectedLanguage)")
+    }
 }
 
 struct ProfileField: View {
-    var title: String
+    var title: LocalizedStringKey
     @Binding var value: String
     @Binding var isEditing: Bool
 
     var body: some View {
         HStack {
-            Text("\(title):")
+            Text(title)
                 .font(.headline)
             if isEditing {
-                TextField("Enter \(title.lowercased())", text: $value)
+                TextField(title, text: $value)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             } else {
                 Text(value)
@@ -180,7 +211,7 @@ struct ProfileField: View {
             Button(action: {
                 isEditing = true
             }) {
-                Text("EDIT")
+                Text(LocalizedStringKey("EDIT"))
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(5)
