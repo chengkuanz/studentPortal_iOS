@@ -40,4 +40,6 @@
 "day_and_time" = "Jour et heure :";
 "description" = "Description :";
 "course_details" = "Détails du cours";
-
+"loading_courses" = "Chargement des cours...";
+"no_courses_registered" = "Aucun cours enregistré";
+"registered_courses" = "Cours enregistrés";

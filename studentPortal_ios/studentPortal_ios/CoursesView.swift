@@ -25,9 +25,9 @@ struct CoursesView: View {
         NavigationView {
             VStack {
                 if isLoading {
-                    ProgressView("Loading courses...")
+                    ProgressView(LocalizedStringKey("loading_courses"))
                 } else if courses.isEmpty {
-                    Text("No courses registered")
+                    Text(LocalizedStringKey("no_courses_registered"))
                 } else {
                     List(courses) { course in
                         NavigationLink(destination: CourseDetailView(courseId: course.id)) {
@@ -46,7 +46,7 @@ struct CoursesView: View {
                 }
             }
             .onAppear(perform: fetchCourses)
-            .navigationTitle("Registered Courses")
+            .navigationTitle(LocalizedStringKey("registered_courses"))
         }
     }
 
