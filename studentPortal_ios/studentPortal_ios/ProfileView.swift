@@ -26,22 +26,22 @@ struct ProfileView: View {
                 .font(.largeTitle)
                 .padding(.top, 20)
 
-            Button(action: {
-                // Action to edit image
-            }) {
-                Text(LocalizedStringKey("EDIT IMAGE"))
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(5.0)
-            }
-            .padding(.top, 10)
-
+//            Button(action: {
+//                // Action to edit image
+//            }) {
+//                Text(LocalizedStringKey("EDIT IMAGE"))
+//                    .font(.headline)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .cornerRadius(5.0)
+//            }
+//            .padding(.top, 10)
+//
             Image(systemName: "person.crop.circle.fill")
                 .resizable()
                 .frame(width: 100, height: 100)
-                .padding(.top, 10)
+                .padding()
 
             VStack(alignment: .leading, spacing: 10) {
                 ProfileField(title: LocalizedStringKey("First Name"), value: $firstName, isEditing: $isEditing)
