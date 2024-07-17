@@ -22,7 +22,13 @@ struct WebView: UIViewRepresentable {
     let url: String
     
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
+        let webViewConfiguration = WKWebViewConfiguration()
+        
+        // Enable media playback capabilities
+        webViewConfiguration.allowsInlineMediaPlayback = true
+        webViewConfiguration.mediaTypesRequiringUserActionForPlayback = []
+        
+        let webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
         
         // Set the custom user agent string to mimic a desktop browser
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
