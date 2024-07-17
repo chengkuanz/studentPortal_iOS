@@ -5,6 +5,7 @@
 //  Created by chengkuan zhao on 2024-06-29.
 //
 
+
 import SwiftUI
 import FirebaseFirestore
 import AVKit
@@ -76,6 +77,13 @@ struct CourseDetailView: View {
                                     Link(LocalizedStringKey("download_video"), destination: URL(string: content.videoUrl)!)
                                         .padding(.top, 10)
                                         .buttonStyle(DefaultButtonStyle())
+                                } else if content.type == "edpuzzle" {
+                                    NavigationLink(destination: EdpuzzleView(url: content.textContent)) {
+                                        Text("View Edpuzzle Content")
+                                            .font(.headline)
+                                            .foregroundColor(.blue)
+                                            .padding(.top, 10)
+                                    }
                                 }
                             }
                             .padding()

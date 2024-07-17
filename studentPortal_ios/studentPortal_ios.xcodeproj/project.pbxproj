@@ -48,6 +48,7 @@
 		D7DA4BB82C2F75C900EEB09F /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */; };
 		D7DA4BBA2C2F797700EEB09F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA4BB92C2F797700EEB09F /* HomeView.swift */; };
 		D7DA4BBC2C2F79D300EEB09F /* text.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D7DA4BBB2C2F79D300EEB09F /* text.rtf */; };
+		D7F199622C476C650085035F /* EdpuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F199612C476C650085035F /* EdpuzzleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		D7DA4BB72C2F75C900EEB09F /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
 		D7DA4BB92C2F797700EEB09F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D7DA4BBB2C2F79D300EEB09F /* text.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = text.rtf; sourceTree = "<group>"; };
+		D7F199612C476C650085035F /* EdpuzzleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdpuzzleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		D7CDFA0C2C12AA3500CEB078 /* studentPortal_ios */ = {
 			isa = PBXGroup;
 			children = (
+				D7F199612C476C650085035F /* EdpuzzleView.swift */,
 				D7CDFA0D2C12AA3500CEB078 /* studentPortal_iosApp.swift */,
 				D748D0972C30A3AB0067809A /* LoginView.swift */,
 				D7CDFA0F2C12AA3500CEB078 /* ContentView.swift */,
@@ -261,6 +264,7 @@
 				D748D09A2C30B5AE0067809A /* CourseDetailView.swift in Sources */,
 				D7DA4BB62C2F75AE00EEB09F /* ProfileView.swift in Sources */,
 				D748D0982C30A3AB0067809A /* LoginView.swift in Sources */,
+				D7F199622C476C650085035F /* EdpuzzleView.swift in Sources */,
 				D7DA4BB82C2F75C900EEB09F /* CoursesView.swift in Sources */,
 				D736950B2C3478FE00F75361 /* CourseMetadataView.swift in Sources */,
 				D7CDFA1C2C12AB0A00CEB078 /* WebView.swift in Sources */,
