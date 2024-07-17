@@ -22,7 +22,12 @@ struct WebView: UIViewRepresentable {
     let url: String
     
     func makeUIView(context: Context) -> WKWebView {
-        WKWebView()
+        let webView = WKWebView()
+        
+        // Set the custom user agent string to mimic a desktop browser
+        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        
+        return webView
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
