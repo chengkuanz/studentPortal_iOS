@@ -5,15 +5,11 @@
 ## Installation
 To install and run the Student Portal iOS app:
 
-1. Clone this repository:
-    ```
-    git clone <repository-url>
-    ```
+1. Unzip the project folder and open the terminal.
+
 
 2. Navigate to the project directory:
-    ```
-    cd studentPortal_ios
-    ```
+
 
 3. Open the project in Xcode:
    
